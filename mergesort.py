@@ -74,11 +74,7 @@ def mergeSort(arr, l, r):
             print (arr[i]),
         print
         #lovedeep sangha
-<<<<<<< HEAD
-        #hahsdahsd    
-=======
-         
->>>>>>> branch 'master' of https://github.com/lovedeepSangha/algorithms.git
+
 # Driver code to test above
 arr = [12, 11, 13, 5, 6, 7]
 n = len(arr)
