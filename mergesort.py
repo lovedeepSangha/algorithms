@@ -72,7 +72,7 @@ def mergeSort(arr, l, r):
         print "merge "
         for i in range(l, r):
             print (arr[i]),
-        print
+        print ("jhjkhkjhkjhkjh)
         #lovedeep sangha
 
 # Driver code to test above
