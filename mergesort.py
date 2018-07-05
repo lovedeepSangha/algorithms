@@ -74,7 +74,7 @@ def mergeSort(arr, l, r):
             print (arr[i]),
         print
         #lovedeep sangha
-            
+         #hanji ji ok aaa  
 # Driver code to test above
 arr = [12, 11, 13, 5, 6, 7]
 n = len(arr)
