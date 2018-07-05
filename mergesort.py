@@ -73,12 +73,12 @@ def mergeSort(arr, l, r):
         for i in range(l, r):
             print (arr[i]),
 
-        print ("jhjkhkjhkjhkjh")
+       # print ("jhjkhkjhkjhkjh")
 
         #lovedeep sangha
-
+#9217670670
 # Driver code to test above
-arr = [12, 11, 13, 5, 6, 7]
+arr = [12, 11, 13, 5, 6, 7,9]
 n = len(arr)
 print ("Given array is")
 for i in range(n):
