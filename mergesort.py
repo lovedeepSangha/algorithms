@@ -1,5 +1,5 @@
 def merge(arr, l, m, r):
-    print (l, " ",m," "  ,r)
+    #print (l, " ",m," "  ,r)
     n1 = m - l + 1
     n2 = r - m
  
@@ -51,40 +51,45 @@ def mergeSort(arr, l, r):
         # Same as (l+r)/2, but avoids overflow for
         # large l and h
         m = (l + (r - 1)) / 2
-        print("mid",m)
+        #print("mid",m)
+        #
         # Sort first and second halves
         mergeSort(arr, l, m)
         
-        for i in range(l, m,1):
-            print ( arr[i]),
-        print
-        print "first"    
-        print ("mmm",m,"rrrrr",r)
+        #for i in range(l, m,1):
+       #     print ( arr[i]),
+        #print
+        #print "first"    
+        #print ("mmm",m,"rrrrr",r)
         mergeSort(arr, m + 1, r)
         
-        print ("2mmm",m+1,"rrrrr",r)
-        for i in range(m, r,1):
-            print (arr[i]),
-        print
-        print "second"
-        print("low",l,"mid",m,"high",r)
+        #print ("2mmm",m+1,"rrrrr",r)
+        #for i in range(m, r,1):
+         #   print (arr[i]),
+        #print
+        #print "second"
+        #print("low",l,"mid",m,"high",r)
         merge(arr, l, m, r)
-        print "merge "
-        for i in range(l, r):
-            print (arr[i]),
+      #  print "merge "
+        #for i in range(l, r):
+         #   print (arr[i]),
 
        # print ("jhjkhkjhkjhkjh")
 
         #lovedeep sangha
 #9217670670
 # Driver code to test above
-arr = [12, 11, 13, 5, 6, 7,9]
+import random
+import time
+
+arr = random.sample(range(1, 1000000), 800000)
 n = len(arr)
 print ("Given array is")
-for i in range(n):
-    print ("%d" % arr[i]),
- 
+#for i in range(n):
+ #   print ("%d" % arr[i]),
+start_time = time.clock()
 mergeSort(arr, 0, n - 1)
-print ("\n\nSorted array is")
-for i in range(n):
-    print ( arr[i]),
+#print ("\n\nSorted array is")
+#for i in range(n):
+ #  print ( arr[i])
+print time.clock() - start_time, "seconds"
