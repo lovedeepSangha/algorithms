@@ -47,7 +47,7 @@ def quickSort(arr, low, high):
  
 # Driver code to test above
 
-arr = random.sample(range(1, 10000000), 8000000)
+arr = random.sample(range(1, 10000000), 800000)
 n = len(arr)
 quickSort(arr, 0, n - 1)
 start_time = time.clock()
