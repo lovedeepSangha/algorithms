@@ -33,7 +33,11 @@ def partition(arr, low, high):
  
 # Function to do Quick sort
 def quickSort(arr, low, high):
-    if low < high:
+   
+  """" while low < high:
+ pi = partition(arr, low, high)"""
+       
+  if low < high:
  
         # pi is partitioning index, arr[p] is now
         # at right place
@@ -43,18 +47,17 @@ def quickSort(arr, low, high):
         # partition and after partition
         quickSort(arr, low, pi - 1)
         quickSort(arr, pi + 1, high)
-
  
 # Driver code to test above
 
-arr = random.sample(range(1, 10000000), 800000)
+
+arr = random.sample(range(1, 10000000), 80)
 n = len(arr)
 quickSort(arr, 0, n - 1)
 start_time = time.clock()
 # print ("Sorted array is:")
-# for i in range(len(arr)):
- # print (arr[i])
+for i in range(len(arr)):
+     print (arr[i])
 print ("my program2")
 print time.clock() - start_time, "seconds"
-
 
