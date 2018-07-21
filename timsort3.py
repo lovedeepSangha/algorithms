@@ -35,7 +35,8 @@ def timSort(arr, n):
             print ("mid---", mid)
             r = min((l + 2 * j - 1), (n - 1))
             print("l---",l," mid---",mid," r--",r)
-            merge(arr, l, mid, r)
+            if(mid>r=="false"):
+                merge(arr, l, mid, r)
             l = l + (2 * j)
         j = 2 * j   
     m=(n-1)/2
@@ -107,7 +108,7 @@ def merge(arr, l, m, r):
         k += 1
 
 
-arr = random.sample(range(1, 100000), 128)
+arr = random.sample(range(1, 100000), 130)
 left = 0;
 right = 4;
 timSort(arr, len(arr))
