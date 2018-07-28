@@ -5,5 +5,5 @@ print "hello"
 taken, val = 100,100
    # print('Total value of items taken =', val)
 
-for item  in taken:
-    print('   ', item)
+for j in range (0,10,j):
+    print "he"
