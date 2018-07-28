@@ -1,3 +1,4 @@
+from cProfile import run
 
 
 run = 32
@@ -92,11 +93,12 @@ def insertionSort1(arr):
 
 
 def timSort(arr, n):
+   #j=run
     
     for i in range(0, n - 1, run):
         insertionSort(arr, i, min((i + 31), (n - 1)))
     
-    for j in range(run, n - 1, 2*j):
+    for j in range(run, n - 1, j=(2*j)):
         for l in range(0, n - 1, l + (2 * j)):
             mid = l + j - 1;
             r = min((l + 2 * j - 1), (n - 1))
