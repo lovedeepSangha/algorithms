@@ -94,6 +94,7 @@ def insertionSort1(arr):
 
 
 def timSort(arr, n):
+<<<<<<< HEAD
 
    # j=run
 
@@ -101,17 +102,35 @@ def timSort(arr, n):
     i = 0;
     l = 0;
 
+=======
+    j = run
+    i = 0;
+    l=0;
+>>>>>>> branch 'master' of https://github.com/lovedeepSangha/algorithms.git
     for i in range(0, n - 1, run):
         insertionSort(arr, i, min((i + 31), (n - 1)))
+<<<<<<< HEAD
     for j in range(run, n - 1, j=(2 * j)):
         for j in range(run, n - 1, 2 * j):
                 for l in range(0, n - 1, l + (2 * j)):
                     mid = l + j - 1;
                     r = min((l + 2 * j - 1), (n - 1))
                     merge(arr, l, mid, r)
+=======
+    
+    for j in range(run, n - 1, 2 * j):
+        for l in range(0, n - 1, l + (2 * j)):
+            mid = l + j - 1;
+            r = min((l + 2 * j - 1), (n - 1))
+            merge(arr, l, mid, r)
+>>>>>>> branch 'master' of https://github.com/lovedeepSangha/algorithms.git
 
 
+<<<<<<< HEAD
 arr = random.sample(range(1, 100000), 120)
+=======
+arr = random.sample(range(1, 100000), 800)
+>>>>>>> branch 'master' of https://github.com/lovedeepSangha/algorithms.git
 timSort(arr, len(arr))
 for i in range(len(arr)):
     print (arr[i])
