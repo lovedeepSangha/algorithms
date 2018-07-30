@@ -74,7 +74,7 @@ def timsort(the_array):
     print sorted_array
 
     
-arr = random.sample(range(1, 100000), 8000)
+arr = random.sample(range(1, 100000), 800)
 # for i in range(len(arr)):
  #   print (arr[i]) 
 start_time = time.clock()
