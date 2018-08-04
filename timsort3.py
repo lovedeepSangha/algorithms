@@ -1,18 +1,56 @@
 import random
 from cProfile import run
-
-run = 32
+import time
+run = 4096*2*2*2*2*2*2*2*2*2*2
+print run
 
 
 def insertionSort(arr, left, right): 
+#     for i in range(left + 1, right + 1):
+#         temp = arr[i];
+#         j = i - 1;
+         
+         
     for i in range(left + 1, right + 1):
-        temp = arr[i];
-        j = i - 1;
-        while j >= left and temp < arr[j] :
-                arr[j + 1] = arr[j]
-                j -= 1
-                
-        arr[j + 1] = temp;
+            key = arr[i]
+            j = i - 1
+         # print(arr[j])
+            if(key < arr[j]) :
+                  
+                 a = binarysearch(arr, key, j, left)
+                 
+                 # time.sleep(3)
+                 k = i
+                 while k > a:
+                     arr[k] = arr[k - 1]
+                     k -= 1
+                 arr[a] = key
+#         
+#         while j >= left and temp < arr[j] :
+#                 arr[j + 1] = arr[j]
+#                 j -= 1
+#                  
+#         arr[j + 1] = temp;
+
+
+def binarysearch(arr, key, high, low):
+    
+    mid = 0;
+    while low <= high:
+                 mid = low + (high - low) / 2
+                 mid = int(mid)
+                 if(mid == high):
+                     return mid;
+                 elif(mid == 0):
+                    return mid;
+                 elif((mid >= 0 and arr[mid] == key) or ((arr[mid] > key) and (arr[mid - 1] < key)) or ((mid == 0)and (key < arr[mid]))):
+                     return mid;
+                 elif (mid >= 0 and key < arr[mid]):
+                     high = mid
+                 elif (mid <= high and key > arr[mid]):
+                     low = mid + 1
+                 
+    return mid;
 
 
 def timSort(arr, n):
@@ -24,34 +62,33 @@ def timSort(arr, n):
    # merge(arr,64,95,127)
    # merge(arr,0,63,127)
     # for i in range(run,n-1,)
+#     
     j = run
     l = 0
 #     while j < n - 1:
 #         mid = l + j - 1;
 #         while mid < n - 1:
 #             
-     
+       
     while j < n - 1:
-        print ("j----", j)
+      #  print ("j----", j)
         mid = l + j - 1;
         while mid < n - 1:
-           
-            
-            print ("mid---", mid)
+              
+       #     print ("mid---", mid)
             r = min((l + (2 * j) - 1), (n - 1))
-            print("l---", l, " mid---", mid, " r--", r)
+        #    print("l---", l, " mid---", mid, " r--", r)
             if(mid < r):
-                print"merge"
+         #       print"merge"
                 merge(arr, l, mid, r)
-            
+              
             l = l + (2 * j)
             mid = l + j - 1;
-        l=0;
-        
+        l = 0;
+          
         j = 2 * j 
         
-        
-        print("last ", "l---", l, " mid---", mid, " r--", r)
+       # print("last ", "l---", l, " mid---", mid, " r--", r)
        # merge(arr, 0, m, n - 1)
         # merge(arr, 0, m, n - 1)
 
@@ -80,7 +117,7 @@ def merge(arr, l, m, r):
     # print (l, " ",m," "  ,r)
     n1 = m - l + 1
     n2 = r - m
-    print "heelo"
+   # print "heelo"
     # create temp arrays
     L = [0] * (n1)
     R = [0] * (n2)
@@ -119,9 +156,7 @@ def merge(arr, l, m, r):
         arr[k] = R[j]
         j += 1
         k += 1
-    print "heelo2"
-
-
+    # print "heelo2"
 
   #  merge(arr,64,95,127)
    # merge(arr,0,63,127)
@@ -210,10 +245,32 @@ def merge(arr, l, m, r):
 #         j += 1
 #         k += 1
 
-arr = random.sample(range(1, 100000), 130)
 
-left = 0;
-right = 4;
+#arr = random.sample(range(1, 100000), 30000)
+# 
+# left = 0;
+# right = 4;
+
+ 
+arr = random.sample(range(1, 100000000), 80000000)
+# for i in range(len(arr)):
+ #   print (arr[i]) 
+start_time = time.clock()
+arr.sort()  
+# for i in range(len(arr)):
+  #  print (arr[i]) 
+print ("bie")
+print time.clock() - start_time, "seconds"
+ 
+# time.sleep(10)  # [0,9, 11, 12, 13, 0,5, 6, 90 , 77,0,0,98,101,9,8,7,6,5,3,2,1]
+arr = random.sample(range(1, 100000000), 80000000)
+ 
+start_time = time.clock()
+# insertionSort(arr)
+ 
+print ("my program")
 timSort(arr, len(arr))
-for i in range(len(arr)):
-   print (i, "---", arr[i])
+print time.clock() - start_time, "seconds"
+ 
+# for i in range(len(arr)):
+#    print (i, "---", arr[i])
