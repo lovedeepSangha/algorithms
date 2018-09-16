@@ -1,9 +1,9 @@
 import random
-from cProfile import run
-import time
-run = 8#*2*2*2*2*2*2*2
-print run
 
+import time
+
+run = 32  # *2*2*2*2*2*2*2
+print run
 
 # def insertionSort(arr, left, right):
 #  
@@ -56,18 +56,6 @@ print run
 #     return mid;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 def partition(arr, low, high):
     i = (low - 1)  # index of smaller element
     pivot = arr[high]  # pivot
@@ -111,26 +99,10 @@ def quickSort(arr, low, high):
 # Driver code to test above
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def timSort(arr, n):
-
-
     
     for i in range(0, n - 1, run):
-        quickSort(arr, i, min((i + run-1), (n - 1)))
+        quickSort(arr, i, min((i + run - 1), (n - 1)))
    # merge(arr, 0, 31, 63)
 
    # merge(arr,64,95,127)
@@ -154,7 +126,10 @@ def timSort(arr, n):
         #    print("l---", l, " mid---", mid, " r--", r)
             if(mid < r):
          #       print"merge"
-                merge(arr, l, mid, r)
+                arr1 = arr[:mid]
+                arr2 = arr[mid:r]
+                print (arr1)
+                fastmerge(arr1, arr2)  # (arr, l, mid, r)
               
             l = l + (2 * j)
             mid = l + j - 1;
@@ -178,7 +153,8 @@ def timSort(arr, n):
             r = min((l + 2 * j - 1), (n - 1))
        ''' 
           # merge(arr, l, mid, r)
-'''    
+'''   
+ 
     for j in range(run, n - 1, 2 * j):
         for l in range(0, n - 1, l + (2 * j)):
             mid = l + j - 1;
@@ -187,7 +163,34 @@ def timSort(arr, n):
 '''
         
      
+def fastmerge(array1, array2):
+    merged_array = []
+    while array1 or array2:
+        if not array1:
+            merged_array.append(array2.pop())
+        elif (not array2) or array1[-1] > array2[-1]:
+            merged_array.append(array1.pop())
+        else:
+            merged_array.append(array2.pop())
+    merged_array.reverse()
+    return merged_array     
+     
+# def cps_merge_sort(array):
+#     return cpsmergeSort(array,lambda x:x)
+# 
+# def cpsmergeSort(array,continuation):
+#     n  = len(array)
+#     if n <= 1:
+#         return continuation(array)
+#     left = array[:n/2]
+#     right = array[n/2:]
+#     return cpsmergeSort (left, lambda leftR:
+#                          cpsmergeSort(right, lambda rightR:
+#                                       continuation(fastmerge(leftR,rightR))))     
+
+     
 def merge(arr, l, m, r):
+
     # print (l, " ",m," "  ,r)
     n1 = m - l + 1
     n2 = r - m
@@ -319,8 +322,7 @@ def merge(arr, l, m, r):
 #         j += 1
 #         k += 1
 
-
-#arr = random.sample(range(1, 100000), 30000)
+# arr = random.sample(range(1, 100000), 30000)
 # 
 # left = 0;
 # right = 4;
@@ -345,7 +347,7 @@ start_time = time.clock()
 print ("my program")
 timSort(arr, len(arr))
 print time.clock() - start_time, "seconds"
+   
 #   
-#  
 # for i in range(len(arr)):
 #     print (i, "---", arr[i])
