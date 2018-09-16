@@ -1,8 +1,30 @@
 import random
-from cProfile import run
 import time
-run = 4096*2*2*2*2*2*2*2*2*2*2
+run = 32#*2*2*2*2*2*2*2
 print run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def insertionSort(arr, left, right): 
@@ -56,7 +78,7 @@ def binarysearch(arr, key, high, low):
 def timSort(arr, n):
     
     for i in range(0, n - 1, run):
-        insertionSort(arr, i, min((i + 31), (n - 1)))
+        insertionSort(arr, i, min((i + run-1), (n - 1)))
    # merge(arr, 0, 31, 63)
 
    # merge(arr,64,95,127)
@@ -252,7 +274,7 @@ def merge(arr, l, m, r):
 # right = 4;
 
  
-arr = random.sample(range(1, 100000000), 80000000)
+arr = random.sample(range(1, 10000), 800)
 # for i in range(len(arr)):
  #   print (arr[i]) 
 start_time = time.clock()
@@ -263,7 +285,7 @@ print ("bie")
 print time.clock() - start_time, "seconds"
  
 # time.sleep(10)  # [0,9, 11, 12, 13, 0,5, 6, 90 , 77,0,0,98,101,9,8,7,6,5,3,2,1]
-arr = random.sample(range(1, 100000000), 80000000)
+arr = random.sample(range(1, 10000), 800)
  
 start_time = time.clock()
 # insertionSort(arr)
@@ -271,6 +293,6 @@ start_time = time.clock()
 print ("my program")
 timSort(arr, len(arr))
 print time.clock() - start_time, "seconds"
- 
+#  
 # for i in range(len(arr)):
-#    print (i, "---", arr[i])
+#     print (i, "---", arr[i])
