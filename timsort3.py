@@ -1,84 +1,136 @@
 import random
+from cProfile import run
 import time
-run = 32#*2*2*2*2*2*2*2
+run = 8#*2*2*2*2*2*2*2
 print run
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def insertionSort(arr, left, right): 
+# def insertionSort(arr, left, right):
+#  
+# 
+# #     for i in range(left + 1, right + 1):
+# #         temp = arr[i];
+# #         j = i - 1;
+#          
 #     for i in range(left + 1, right + 1):
-#         temp = arr[i];
-#         j = i - 1;
-         
-         
-    for i in range(left + 1, right + 1):
-            key = arr[i]
-            j = i - 1
-         # print(arr[j])
-            if(key < arr[j]) :
-                  
-                 a = binarysearch(arr, key, j, left)
-                 
-                 # time.sleep(3)
-                 k = i
-                 while k > a:
-                     arr[k] = arr[k - 1]
-                     k -= 1
-                 arr[a] = key
-#         
-#         while j >= left and temp < arr[j] :
-#                 arr[j + 1] = arr[j]
-#                 j -= 1
+#             key = arr[i]
+#             j = i - 1
+#          # print(arr[j])
+#             if(key < arr[j]) :
+#                   
+#                  a = binarysearch(arr, key, j, left)
 #                  
-#         arr[j + 1] = temp;
+#                  # time.sleep(3)
+#                  k = i
+#                  while k > a:
+#                      arr[k] = arr[k - 1]
+#                      k -= 1
+#                  arr[a] = key
+# #         
+# 
+# #         while j >= left and temp < arr[j] :
+# #                 arr[j + 1] = arr[j]
+# #                 j -= 1
+# #                   
+# #         arr[j + 1] = temp;
+# 
+# 
+# def binarysearch(arr, key, high, low):
+# 
+#     
+#     mid = 0;
+#     while low <= high:
+#                  mid = low + (high - low) / 2
+#                  mid = int(mid)
+#                  if(mid == high):
+#                      return mid;
+#                  elif(mid == 0):
+#                     return mid;
+#                  elif((mid >= 0 and arr[mid] == key) or ((arr[mid] > key) and (arr[mid - 1] < key)) or ((mid == 0)and (key < arr[mid]))):
+#                      return mid;
+#                  elif (mid >= 0 and key < arr[mid]):
+#                      high = mid
+#                  elif (mid <= high and key > arr[mid]):
+#                      low = mid + 1
+#                  
+#     return mid;
 
 
-def binarysearch(arr, key, high, low):
-    
-    mid = 0;
-    while low <= high:
-                 mid = low + (high - low) / 2
-                 mid = int(mid)
-                 if(mid == high):
-                     return mid;
-                 elif(mid == 0):
-                    return mid;
-                 elif((mid >= 0 and arr[mid] == key) or ((arr[mid] > key) and (arr[mid - 1] < key)) or ((mid == 0)and (key < arr[mid]))):
-                     return mid;
-                 elif (mid >= 0 and key < arr[mid]):
-                     high = mid
-                 elif (mid <= high and key > arr[mid]):
-                     low = mid + 1
-                 
-    return mid;
+
+
+
+
+
+
+
+
+
+
+
+
+def partition(arr, low, high):
+    i = (low - 1)  # index of smaller element
+    pivot = arr[high]  # pivot
+ 
+    for j in range(low , high):
+ 
+        # If current element is smaller than or
+        # equal to pivot
+        if   arr[j] <= pivot:
+         
+            # increment index of smaller element
+            i = i + 1
+            arr[i], arr[j] = arr[j], arr[i]
+ 
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return (i + 1)
+ 
+# The main function that implements QuickSort
+# arr[] --> Array to be sorted,
+# low  --> Starting index,
+# high  --> Ending index
+
+ 
+# Function to do Quick sort
+def quickSort(arr, low, high):
+   
+  """" while low < high:
+ pi = partition(arr, low, high)"""
+       
+  if low < high:
+ 
+        # pi is partitioning index, arr[p] is now
+        # at right place
+        pi = partition(arr, low, high)
+ 
+        # Separately sort elements before
+        # partition and after partition
+        quickSort(arr, low, pi - 1)
+        quickSort(arr, pi + 1, high)
+ 
+# Driver code to test above
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def timSort(arr, n):
+
+
     
     for i in range(0, n - 1, run):
-        insertionSort(arr, i, min((i + run-1), (n - 1)))
+        quickSort(arr, i, min((i + run-1), (n - 1)))
    # merge(arr, 0, 31, 63)
 
    # merge(arr,64,95,127)
@@ -293,6 +345,7 @@ start_time = time.clock()
 print ("my program")
 timSort(arr, len(arr))
 print time.clock() - start_time, "seconds"
+#   
 #  
 # for i in range(len(arr)):
 #     print (i, "---", arr[i])
